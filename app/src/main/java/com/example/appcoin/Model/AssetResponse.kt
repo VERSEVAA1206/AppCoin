@@ -1,11 +1,13 @@
 package com.example.appcoin.Model
-
 import kotlinx.serialization.Serializable
+
+
 @Serializable
-data class Asset(
+data class AssetResponse(
     val id: String,
     val name: String,
     val symbol: String,
-    val price: String,
-    val percentage: Double
+    val priceUsd: String,
+    val changePercentage: String
+
 )

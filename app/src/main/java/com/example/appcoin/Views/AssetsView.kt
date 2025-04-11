@@ -1,18 +1,19 @@
 package com.example.appcoin.Views
-
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -42,7 +43,7 @@ fun AssetsList(viewModel: AssetsListViewModel = hiltViewModel()) {
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
     ) {
-        items(assets) { asset ->
+        items(assets,key={it.id}) { asset ->
             AssetRow(asset)
         }
     }
@@ -114,6 +115,33 @@ fun AssetRow(asset: Asset) {
 @Preview(
     showBackground = true
 )
+@Composable
+fun AssetRowPreview() {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        modifier = Modifier.fillMaxSize()
+    ) {
+        AssetRow(
+            Asset(
+                id = "1",
+                name = "Bitcoin",
+                symbol = "BTC",
+                percentage = 5.38,
+                price = "87800"
+            )
+        )
+        Spacer(modifier = Modifier.size(16.dp))
+        AssetRow(
+            Asset(
+                id = "2",
+                name = "Ethereum",
+                symbol = "ETH",
+                percentage = -8.28,
+                price = "1800"
+            )
+        )
+
+    }}
 @Composable
 fun AssetsListPreview() {
     AssetsList()

@@ -33,6 +33,7 @@ class AssetsListViewModel @Inject constructor(
                 _assets.value = result
             } catch(e: Exception) {
                 // TODO: Handle error
+                print(e.message)
             }
         }
     }
