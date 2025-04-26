@@ -72,7 +72,7 @@ fun AssetRow(asset: Asset) {
                 )
             } else {
                 AsyncImage(
-                    model = "https://assets.coincap.io/assets/icons/${asset.symbol.lowercase()}@2x.png",
+                    model = "https://assets.coincap.io/assets/icons/${asset.symbol.lowercase()}@2x.png\n",
                     contentDescription = null,
                     modifier = Modifier
                         .size(30.dp)
